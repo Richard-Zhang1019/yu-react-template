@@ -1,33 +1,32 @@
+import { Box, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useRoutes } from 'react-router-dom'
+
+import Header from '@/components/Header'
+import routes from '@/router'
+import ThemeColor from '@/contexts/themeColor'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [themeColor, setThemeColor] = useState('theme-dark')
+  const contextValue = {
+    themeColor,
+    setThemeColor
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <ThemeColor.Provider value={contextValue}>
+      <Box
+        className="App"
+        minH="100vh"
+        overflowX="hidden"
+        p={2}
+        pr={10}
+        pl={10}
+      >
+        <Header />
+        {useRoutes(routes)}
+      </Box>
+    </ThemeColor.Provider>
   )
 }
 
