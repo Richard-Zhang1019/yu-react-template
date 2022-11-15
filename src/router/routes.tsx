@@ -1,22 +1,29 @@
-import { RouteObject } from 'react-router-dom'
+import { Navigate, RouteObject } from 'react-router-dom'
 import { lazy } from 'react'
 
 const Home = lazy(() => import('@/pages/Home'))
-const Demo = lazy(() => import('@/pages/About'))
+const About = lazy(() => import('@/pages/About'))
+const Profile = lazy(() => import('@/pages/Profile'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
 const routes = [
   {
     path: '/',
-    element: <Home />
+    element: <Navigate to="/home" />
   },
   {
-    path: '/home',
-    element: <Home />
-  },
-  {
-    path: '/blog',
-    element: <Demo />
+    path: 'home',
+    element: <Home />,
+    children: [
+      {
+        path: 'about',
+        element: <About />
+      },
+      {
+        path: 'profile',
+        element: <Profile />
+      }
+    ]
   },
   {
     path: '*',

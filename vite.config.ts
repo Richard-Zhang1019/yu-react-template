@@ -15,12 +15,12 @@ export default defineConfig({
       less: {
         multipleScopeVars: [
           {
-            scopeName: 'theme-dark',
-            path: resolve('src/assets/style/theme-dark.less')
-          },
-          {
             scopeName: 'theme-light',
             path: resolve('src/assets/style/theme-light.less')
+          },
+          {
+            scopeName: 'theme-dark',
+            path: resolve('src/assets/style/theme-dark.less')
           }
         ]
       }

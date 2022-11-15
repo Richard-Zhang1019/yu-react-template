@@ -49,7 +49,7 @@ const Header = () => {
         />
       </Box>
 
-      <Flex gap={10}>
+      <Flex gap={15} mr={10}>
         <Box cursor="pointer" onClick={toggleThemeColor}>
           {themeColor === 'theme-dark' ? (
             <BsFillSunFill size={22} />
@@ -61,7 +61,10 @@ const Header = () => {
         <Box
           cursor="pointer"
           onClick={() => {
-            window.open('https://github.com/Ayu-1019', 'blank')
+            window.open(
+              'https://github.com/Ayu-1019/yu-react-template',
+              'blank'
+            )
           }}
         >
           <AiFillGithub size={22} />
