@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/layout'
+import { Box, Flex } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { AiFillGithub } from 'react-icons/ai'
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
