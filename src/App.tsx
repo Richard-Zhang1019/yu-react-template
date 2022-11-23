@@ -4,7 +4,7 @@ import { useRoutes } from 'react-router-dom'
 
 import Header from '@/components/Header'
 import routes from '@/router'
-import ThemeColor from '@/contexts/themeColor'
+import ThemeColor from '@/contexts/ThemeColor'
 
 function App() {
   const [themeColor, setThemeColor] = useState('theme-light')

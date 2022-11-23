@@ -7,17 +7,16 @@ import { useContext } from 'react'
 import AyuLightImg from '@/assets/img/ayu-light.png'
 import AyuDarkImg from '@/assets/img/ayu-dark.png'
 import { Img } from '@chakra-ui/react'
-import ThemeColorContext from '@/contexts/themeColor'
+import ThemeColorContext from '@/contexts/ThemeColor'
+import useIsDark from '@/hooks/useIsDark'
 
 const Header = () => {
   const navigate = useNavigate()
   const { themeColor, setThemeColor } = useContext(ThemeColorContext)
+  const isDark = useIsDark()
 
   const toggleThemeColor = () => {
-    let currentTheme = themeColor
-    themeColor === 'theme-dark'
-      ? (currentTheme = 'theme-light')
-      : (currentTheme = 'theme-dark')
+    let currentTheme = isDark ? 'theme-light' : 'theme-dark'
     toggleTheme({
       scopeName: currentTheme
     })
@@ -41,7 +40,7 @@ const Header = () => {
         }}
       >
         <Img
-          src={themeColor === 'theme-dark' ? AyuLightImg : AyuDarkImg}
+          src={isDark ? AyuLightImg : AyuDarkImg}
           opacity={0.8}
           _hover={{ opacity: 1 }}
           color="white"
@@ -52,7 +51,7 @@ const Header = () => {
 
       <Flex gap={18} mr={10} mt={10}>
         <Box cursor="pointer" onClick={toggleThemeColor}>
-          {themeColor === 'theme-dark' ? (
+          {isDark ? (
             <BsFillSunFill size={22} />
           ) : (
             <BsFillMoonStarsFill size={22} />

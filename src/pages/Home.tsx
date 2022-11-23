@@ -2,7 +2,7 @@ import { Box, Flex } from '@chakra-ui/react'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 const Home = () => {
-  const navgate = useNavigate()
+  const navigate = useNavigate()
 
   return (
     <Flex
@@ -14,10 +14,10 @@ const Home = () => {
       gap={20}
     >
       <Flex gap={20}>
-        <Box cursor="pointer" onClick={() => navgate('/home/about')}>
+        <Box cursor="pointer" onClick={() => navigate('/home/about')}>
           Go About Page
         </Box>
-        <Box cursor="pointer" onClick={() => navgate('/home/profile')}>
+        <Box cursor="pointer" onClick={() => navigate('/home/profile')}>
           Go Profile Page
         </Box>
       </Flex>
