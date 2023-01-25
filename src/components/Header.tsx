@@ -62,7 +62,7 @@ const Header = () => {
           cursor="pointer"
           onClick={() => {
             window.open(
-              'https://github.com/Ayu-1019/yu-react-template',
+              'https://github.com/richard-zhang1019/yu-react-template',
               'blank'
             )
           }}
