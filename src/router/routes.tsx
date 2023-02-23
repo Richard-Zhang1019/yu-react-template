@@ -1,5 +1,5 @@
-import { Navigate, RouteObject } from 'react-router-dom'
 import { lazy } from 'react'
+import { Navigate, RouteObject } from 'react-router-dom'
 
 const Home = lazy(() => import('@/pages/Home'))
 const About = lazy(() => import('@/pages/About'))
