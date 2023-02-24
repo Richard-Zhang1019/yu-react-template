@@ -1,26 +1,20 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { Box, Flex, Img } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { AiFillGithub } from 'react-icons/ai'
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
-import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js'
-import { useContext } from 'react'
-import AyuLightImg from '@/assets/img/ayu-light.png'
+
 import AyuDarkImg from '@/assets/img/ayu-dark.png'
-import { Img } from '@chakra-ui/react'
-import ThemeColorContext from '@/contexts/ThemeColor'
 import useIsDark from '@/hooks/useIsDark'
+import ThemeColorContext from '@/contexts/ThemeColor'
 
 const Header = () => {
   const navigate = useNavigate()
-  const { themeColor, setThemeColor } = useContext(ThemeColorContext)
   const isDark = useIsDark()
+  const { setThemeColor } = useContext(ThemeColorContext)
 
   const toggleThemeColor = () => {
-    let currentTheme = isDark ? 'theme-light' : 'theme-dark'
-    toggleTheme({
-      scopeName: currentTheme
-    })
-    setThemeColor(currentTheme)
+    setThemeColor(isDark ? 'theme-light' : 'theme-dark')
   }
 
   return (
@@ -40,7 +34,7 @@ const Header = () => {
         }}
       >
         <Img
-          src={isDark ? AyuLightImg : AyuDarkImg}
+          src={AyuDarkImg}
           opacity={0.8}
           _hover={{ opacity: 1 }}
           color="white"

@@ -1,5 +1,4 @@
 import { Flex } from '@chakra-ui/react'
-import { useState } from 'react'
 import { Button } from 'antd'
 
 import { useAppSelector, useAppDispatch } from '@/store'
