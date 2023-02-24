@@ -1,7 +1,11 @@
 import { Box, Flex, keyframes } from '@chakra-ui/react'
 import { FaReact } from 'react-icons/fa'
 
+import { useAppSelector } from '@/store'
+
 const About = () => {
+  const { value } = useAppSelector(state => state.count)
+
   const rotate = keyframes`
     from { transform: rotate(0deg) }
     to { transform: rotate(360deg) }
@@ -13,6 +17,7 @@ const About = () => {
         <FaReact size={50} />
       </Box>
       <h1>Yu-React-template</h1>
+      <Box>redux count: {value}</Box>
     </Flex>
   )
 }
